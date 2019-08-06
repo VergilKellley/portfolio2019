@@ -11,12 +11,32 @@ body {
   line-height: 1.6;
 }
 
+.navbar {
+  position: fixed;
+  z-index: 6;
+  background-color: #ffff;
+  width: 100vw;
+  opacity: 0.8;
+}
+
+a {
+  display: inline-block;
+  margin-top: 5px;
+  color: #333;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.viewWebsites {
+  color: #fff;
+}
+
 #imageAndTextContainer {
   position: absolute;
   margin-left: 60%;
-  margin-top: 10vh;
+  margin-top: 14vh;
   width: 450px;
-  height: 900px;
+  height: auto;
   z-index: 6;
   color: beige;
 }
@@ -62,17 +82,19 @@ body {
 .slide .content {
   position: absolute;
   bottom: 70px;
-  left: -600px;
+  left: -50px;
   opacity: 0;
-  width: 600px;
-  background-color: rgba(255, 255, 255, 0.7);
+  width: 380px;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #333;
+  border-radius: 10px;
+  text-align: center;
   z-index: 6;
 }
 
 .slide.current .content {
   opacity: 1;
-  transform: translateX(600px);
+  transform: translateX(100px);
   transition: all 0.7s ease-in-out 0.3s;
 }
 
@@ -122,13 +144,21 @@ p {
 
 @media (max-width: 500px) {
   .slide .content {
-    bottom: -300px;
+    bottom: -250px;
     left: 0;
     width: 100%;
   }
 
   .slide.current .content {
     transform: translateY(-300px);
+  }
+
+  #selfie {
+    display: none;
+  }
+
+  #imageAndTextContainer {
+    display: none;
   }
 }
 
@@ -140,13 +170,13 @@ p {
   background: url("../img/paris.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(3) {
-  background: url("../img/egypt.jpg") no-repeat center top/cover;
+  background: url("../img/cancun.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(4) {
-  background: url("../img/rio.jpg") no-repeat center top/cover;
+  background: url("../img/caracas.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(5) {
-  background: url("../img/newyork.jpg") no-repeat center top/cover;
+  background: url("../img/poznan.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(6) {
   background: url("../img/barcelona.jpg") no-repeat center top/cover;
@@ -155,9 +185,39 @@ p {
   background: url("../img/amsterdam.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(8) {
-  background: url("../img/hongkong.jpg") no-repeat center top/cover;
+  background: url("../img/montreal.jpg") no-repeat center top/cover;
 }
 
 .slide:nth-child(9) {
-  background: url("../img/seattle.jpg") no-repeat center top/cover;
+  background: url("../img/phoenix.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(10) {
+  background: url("../img/sanpr.jpg") no-repeat center top/cover;
+}
+
+/******Websites Page***********/
+
+#sitesSection {
+  width: 100vw;
+  height: auto;
+  background-color: rgb(104, 104, 91);
+}
+.sitesText {
+  width: 100%;
+  padding-top: 12%;
+}
+
+.sitesText,
+p a {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.projectImages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  padding-top: 20px;
+  padding-bottom: 70px;
 }
