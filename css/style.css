@@ -221,3 +221,61 @@ p a {
   padding-top: 20px;
   padding-bottom: 70px;
 }
+
+/******Resume Page**********/
+
+#resumeContainer {
+  background-color: beige;
+  color: #333;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#resumeBorder {
+  width: 80vw;
+  margin: 0 auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  padding-top: 10%;
+  font-weight: bold;
+}
+
+#header a {
+  padding: 0;
+}
+
+.titles h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.education {
+  padding-top: 20px;
+}
+
+.uni {
+  text-align: center;
+}
+
+.roosevelt {
+  padding-bottom: 100px;
+}
+
+.footer-container {
+  margin-top: 30px;
+  margin-bottom: 30;
+}
+
+.copyRight a {
+  padding-bottom: 30px;
+  margin-left: 33%;
+  text-align: center;
+  color: #fff;
+}
