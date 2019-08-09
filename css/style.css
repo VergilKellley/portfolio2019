@@ -9,26 +9,27 @@ body {
   background: #333;
   color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .navbar {
   position: fixed;
-  z-index: 6;
-  background-color: #ffff;
+  z-index: 99;
+  background-color: #333;
   width: 100vw;
   opacity: 0.8;
 }
 
-a {
+.navbar a {
   display: inline-block;
   margin-top: 5px;
-  color: #333;
-  padding: 20px;
-  text-decoration: none;
-}
-
-.viewWebsites {
+  padding: 10px;
   color: #fff;
+  text-decoration: none;
 }
 
 #imageAndTextContainer {
@@ -38,11 +39,12 @@ a {
   width: 450px;
   height: auto;
   z-index: 6;
-  color: beige;
+  color: #333;
 }
 
-#subText {
-  text-align: justify;
+#imageAndTextContainer p {
+  color: #333 !important;
+  font-weight: 800;
 }
 
 #selfie {
@@ -82,11 +84,12 @@ a {
 .slide .content {
   position: absolute;
   bottom: 70px;
-  left: -50px;
+  left: -450px;
   opacity: 0;
   width: 380px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #333;
+  background-color: #333;
+  opacity: 0.8;
+  color: #fff;
   border-radius: 10px;
   text-align: center;
   z-index: 6;
@@ -94,7 +97,7 @@ a {
 
 .slide.current .content {
   opacity: 1;
-  transform: translateX(100px);
+  transform: translateX(500px);
   transition: all 0.7s ease-in-out 0.3s;
 }
 
@@ -128,7 +131,7 @@ a {
 }
 .overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
   top: 0;
   bottom: 0;
   height: 100%;
@@ -142,7 +145,7 @@ p {
   z-index: 6;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1050px) {
   .slide .content {
     bottom: -250px;
     left: 0;
@@ -153,11 +156,24 @@ p {
     transform: translateY(-300px);
   }
 
-  #selfie {
-    display: none;
+  #imageAndTextContainer {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 14vh;
+    width: 400px;
+    height: auto;
+    z-index: 6;
+    color: #333;
   }
 
-  #imageAndTextContainer {
+  #imageAndTextContainer p {
+    color: #333 !important;
+    font-weight: 800;
+    font-size: 0.8em;
+    text-align: justify;
+  }
+
+  #selfie {
     display: none;
   }
 }
@@ -168,6 +184,7 @@ p {
 
 .slide:nth-child(2) {
   background: url("../img/paris.jpg") no-repeat center top/cover;
+  padding-top: 70px;
 }
 .slide:nth-child(3) {
   background: url("../img/cancun.jpg") no-repeat center top/cover;
@@ -200,26 +217,73 @@ p {
 #sitesSection {
   width: 100vw;
   height: auto;
-  background-color: rgb(104, 104, 91);
+  background-color: beige;
+}
+
+.portfolioDescription p {
+  position: absolute;
+  margin-top: 10%;
+  padding: 10px 10px;
+  left: 16%;
+  text-align: center;
+  width: 70%;
+  background-color: #333;
+  color: #fff !important;
+  z-index: 1;
 }
 .sitesText {
   width: 100%;
   padding-top: 12%;
 }
 
+.sitesText :first-child {
+  margin-top: 5%;
+}
+
 .sitesText,
 p a {
   text-align: center;
-  padding-bottom: 70px;
+  padding-bottom: 30px;
+}
+
+.projectText {
+  position: relative;
+  padding-top: 100px;
+  color: #333;
+}
+
+.projectText,
+p {
+  color: #333 !important;
+}
+
+.button {
+  background-color: #333;
+  color: beige;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .projectImages {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px !important;
   width: 70%;
-  padding-top: 20px;
-  padding-bottom: 70px;
+  border: 1px solid #333;
+}
+
+.viewWebsites {
+  padding: 0;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 /******Resume Page**********/
@@ -249,6 +313,7 @@ p a {
 
 #header a {
   padding: 0;
+  text-decoration: none;
 }
 
 .titles h3 {
@@ -277,5 +342,8 @@ p a {
   padding-bottom: 30px;
   margin-left: 33%;
   text-align: center;
+  text-decoration: none;
   color: #fff;
 }
+
+@media;
