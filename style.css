@@ -1,68 +1,50 @@
-/** {
-  padding: 0;
-  margin: 0;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
   box-sizing: border-box;
-  overflow-x: hidden;
-}*/
-
-body {
-  position: relative;
   margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-#heroDiv {
-  background-image: url("../img/heroimg.jpg");
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: -10;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.bold {
+  font-weight: bold;
 }
 
-/*#heroImg {
-  background-image: url("heroimg.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}*/
-
-.overlay {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
-  top: 0;
-  bottom: 0;
-  height: 100%;
+.navbar {
+  position: fixed;
+  z-index: 99;
+  background-color: #333;
   width: 100vw;
-  z-index: -5;
+  opacity: 0.8;
+}
+
+.navbar a {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
 }
 
 #imageAndTextContainer {
+  position: absolute;
   margin-left: 60%;
-  margin-top: 10vh;
+  margin-top: 14vh;
   width: 450px;
-  height: 900px;
-  z-index: 4;
-  color: beige;
+  height: auto;
+  z-index: 6;
+  color: #333;
 }
 
-#vergilKelley {
-}
-
-#webDev {
-}
-
-#subText {
-  text-align: justify;
+#imageAndTextContainer p {
+  color: #333 !important;
+  font-weight: 800;
 }
 
 #selfie {
@@ -78,70 +60,288 @@ body {
   transform: rotate(-90deg);
 }
 
-.italicText {
-  font-style: italic;
-}
-.projectText {
-  padding-top: 15rem;
-  font-size: 1.3rem;
-}
-.projectImages {
-  margin-top: 10rem;
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #333;
-}
-
-.resumebg {
-  margin-top: 20rem;
-}
-
-#resumeContainer {
-  margin-top: 10rem;
-  text-align: center;
-}
-
-.addColor {
-  background-color: aliceblue;
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
   width: 100vw;
 }
 
-#phoneNumber {
-  margin-bottom: 5px;
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 
-a {
-  color: #000;
+.slide.current {
+  opacity: 1;
 }
 
-.summarySkills {
-  margin-top: 2rem;
-}
-
-.resumeh5 {
+.slide .content {
+  position: absolute;
+  bottom: 70px;
+  left: -450px;
+  opacity: 0;
+  width: 380px;
+  background-color: #333;
+  opacity: 0.8;
+  color: #fff;
+  border-radius: 10px;
   text-align: center;
+  z-index: 6;
+}
+
+.slide.current .content {
+  opacity: 1;
+  transform: translateX(500px);
+  transition: all 0.7s ease-in-out 0.3s;
+}
+
+.buttons button#next {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+}
+
+.buttons button#prev {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+}
+
+.buttons button {
+  position: relative;
+  z-index: 6;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  padding: 13px 15px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.buttons button:hover {
+  background-color: #fff;
+  color: #333;
+}
+.overlay {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100vw;
+  z-index: 5;
+}
+
+.content h1,
+p {
+  position: relative;
+  z-index: 6;
+}
+
+@media (max-width: 1050px) {
+  .slide .content {
+    bottom: -250px;
+    left: 0;
+    width: 100%;
+  }
+
+  .slide.current .content {
+    transform: translateY(-300px);
+  }
+
+  #imageAndTextContainer {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 14vh;
+    width: 400px;
+    height: auto;
+    z-index: 6;
+    color: #333;
+  }
+
+  #imageAndTextContainer p {
+    color: #333 !important;
+    font-weight: 800;
+    font-size: 0.8em;
+    text-align: justify;
+  }
+
+  #selfie {
+    display: none;
+  }
+}
+
+.slide:first-child {
+  background: url("../img/chicago.jpg") no-repeat center center/cover;
+}
+
+.slide:nth-child(2) {
+  background: url("../img/paris.jpg") no-repeat center top/cover;
+  padding-top: 70px;
+}
+.slide:nth-child(3) {
+  background: url("../img/cancun.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(4) {
+  background: url("../img/caracas.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(5) {
+  background: url("../img/poznan.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(6) {
+  background: url("../img/barcelona.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(7) {
+  background: url("../img/amsterdam.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(8) {
+  background: url("../img/montreal.jpg") no-repeat center top/cover;
+}
+
+.slide:nth-child(9) {
+  background: url("../img/phoenix.jpg") no-repeat center top/cover;
+}
+.slide:nth-child(10) {
+  background: url("../img/sanpr.jpg") no-repeat center top/cover;
+}
+
+/******Websites Page***********/
+
+#sitesSection {
+  width: 100vw;
+  height: auto;
+  background-color: beige;
+}
+
+.portfolioDescription p {
+  position: absolute;
+  margin-top: 10%;
+  padding: 10px 10px;
+  left: 16%;
+  text-align: center;
+  width: 70%;
+  background-color: #333;
+  color: #fff !important;
+  z-index: 1;
+}
+.sitesText {
+  width: 100%;
+  padding-top: 12%;
+}
+
+.sitesText :first-child {
+  margin-top: 5%;
+}
+
+.sitesText,
+p a {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.projectText {
+  position: relative;
+  padding-top: 100px;
+  color: #333;
+}
+
+.projectText,
+p {
+  color: #333 !important;
+}
+
+.button {
+  background-color: #333;
+  color: beige;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.projectImages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px !important;
+  width: 70%;
+  border: 1px solid #333;
+}
+
+.viewWebsites {
+  padding: 0;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/******Resume Page**********/
+
+#resumeContainer {
+  background-color: beige;
+  color: #333;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#resumeBorder {
+  width: 80vw;
+  margin: 0 auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  padding-top: 10%;
+  font-weight: bold;
+}
+
+#header a {
+  padding: 0;
+  text-decoration: none;
+}
+
+.titles h3 {
+  text-align: center;
+  font-weight: bold;
 }
 
 .education {
+  padding-top: 20px;
+}
+
+.uni {
   text-align: center;
 }
 
-#Northeastern {
-  padding-left: 10%;
-  margin-top: 1rem;
+.roosevelt {
+  padding-bottom: 100px;
 }
 
-#Roosevelt {
-  padding-left: 10%;
-  margin-top: 1rem;
+.footer-container {
+  margin-top: 30px;
+  margin-bottom: 30;
 }
 
-.copyRight {
+.copyRight a {
+  padding-bottom: 30px;
+  margin-left: 33%;
   text-align: center;
-  height: 70px;
-  background: #666;
-}
-
-.copyRight p {
-  padding-top: 30px;
+  text-decoration: none;
+  color: #fff;
 }
