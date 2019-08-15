@@ -39,11 +39,11 @@ body {
   width: 450px;
   height: auto;
   z-index: 6;
-  color: #333;
+  color: #fff;
 }
 
 #imageAndTextContainer p {
-  color: #333 !important;
+  color: #fff !important;
   font-weight: 800;
 }
 
@@ -84,7 +84,8 @@ body {
 .slide .content {
   position: absolute;
   bottom: 70px;
-  left: -450px;
+  display: none;
+  /*left: -450px;*/
   opacity: 0;
   width: 380px;
   background-color: #333;
@@ -97,8 +98,10 @@ body {
 
 .slide.current .content {
   opacity: 1;
+  display: block;
+  left: 100px;
   transform: translateX(500px);
-  transition: all 0.7s ease-in-out 0.3s;
+  transition: all 1.7s ease-in-out 0.8s;
 }
 
 .buttons button#next {
@@ -131,7 +134,7 @@ body {
 }
 .overlay {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
   bottom: 0;
   height: 100%;
@@ -163,11 +166,11 @@ p {
     width: 400px;
     height: auto;
     z-index: 6;
-    color: #333;
+    color: #fff;
   }
 
   #imageAndTextContainer p {
-    color: #333 !important;
+    color: #fff !important;
     font-weight: 800;
     font-size: 0.8em;
     text-align: justify;
@@ -270,12 +273,25 @@ p {
 }
 
 .projectImages {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px !important;
   width: 70%;
   border: 1px solid #333;
+}
+
+.projectImages.slide-in {
+  transform: translateX(30%) scale(0.95);
+}
+
+.slide-in {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
 }
 
 .viewWebsites {
@@ -345,5 +361,3 @@ p {
   text-decoration: none;
   color: #fff;
 }
-
-@media;
