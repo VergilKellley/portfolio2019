@@ -1,140 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>image slider</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="websites.html">Websites</a>
-      <!-- <a href="#">Apps</a>-->
-      <a href="https://github.com/VergilKellley" target="_blank">Github</a>
-      <a href="resume.html">Resume</a>
-      <a
-        href="https://www.linkedin.com/in/vergil-kelley-8779ab2a/"
-        target="_blank"
-        >Linkedin</a
-      >
-      <a href="mailto:verg_1@yahoo.com?subject=The%20subject%20of%20the%20mail"
-        >Contact</a
-      >
-    </nav>
-    <div id="imageAndTextContainer">
-      <img id="selfie" src="heroSelfie.jpg" />
-      <h2 id="vergilKelley">Vergil Kelley</h2>
-      <h3 id="webDev">Front End Developer</h3>
-      <p>
-        <span class="bold">Technologies:</span> HTML, CSS, JavaScript, OOP,
-        jQuery, API's WordPress, PHP, SQL, MySQL, phpMyAdmin, SASS, Git/GitHub,
-        JSON, Ajax. Based in Chicago Illinois, I am currently employed by a
-        payments processing company making responsive & dynamic websites for
-        merchants along with maintaining my employer's website. In my free time
-        I like to work on projects for friends and family. I also enjoy
-        traveling.
-      </p>
-    </div>
-    <div class="slider">
-      <div class="slide current">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Chicago Illinois</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Paris France</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide  ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Cancun Mexico</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Caracas Venezuela</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Poznan Poland</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Barcelona Spain</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Amsterdam Netherlands</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide  ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Montreal Cananda</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>Phoenix Arizona</h1>
-          <p></p>
-        </div>
-      </div>
-      <div class="slide ">
-        <div class="overlay"></div>
-        <div class="content">
-          <h1>San Juan Puerto Rico</h1>
-          <p></p>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>image slider</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="websites.html">Websites</a>
+    <!-- <a href="#">Apps</a>-->
+    <a href="https://github.com/VergilKellley" target="_blank">Github</a>
+    <a href="resume.html">Resume</a>
+    <a href="https://www.linkedin.com/in/vergil-kelley-8779ab2a/" target="_blank">Linkedin</a>
+    <a href="mailto:verg_1@yahoo.com?subject=The%20subject%20of%20the%20mail">Contact</a>
+  </nav>
+  <div id="imageAndTextContainer">
+    <img id="selfie" src="heroSelfie.jpg" />
+    <h2 id="vergilKelley">Vergil Kelley</h2>
+    <h3 id="webDev">Front End Developer</h3>
+    <p>
+      <span class="bold">Technologies:</span> HTML, CSS, JavaScript, OOP, jQuery, API's WordPress, PHP, SQL, MySQL, phpMyAdmin, SASS, Git/GitHub,
+      MailChimp, JSON, Ajax. Based in Chicago Illinois, I am currently employed by a payments processing company making responsive
+      & dynamic websites for merchants along with maintaining my employer's website. In my free time I like to work on projects
+      for friends and family. I also enjoy traveling.
+    </p>
+  </div>
+  <div class="slider">
+    <div class="slide current">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Chicago Illinois</h1>
+        <p></p>
       </div>
     </div>
-    <div class="buttons">
-      <button id="next">></button>
-      <button id="prev"><</button>
-    </div>
-    <div class="location-temp-container">
-      <div class="location">
-        <h3 class="location-timezone">Timezone</h3>
-        <canvas class="icon" width="108" height="108"></canvas>
-      </div>
-      <div class="temperature">
-        <h5 id="getWeather">
-          Click allow on alert box
-        </h5>
-        <div class="degree-section">
-          <h4 class="temperature-degree">34</h4>
-          <span>F</span>
-        </div>
-        <div class="temperature-time"></div>
-        <div class="today-time"></div>
-        <div class="temperature-description"></div>
+    <div class="slide ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Paris France</h1>
+        <p></p>
       </div>
     </div>
-    <script src="skycons.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    <div class="slide  ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Cancun Mexico</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Caracas Venezuela</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Poznan Poland</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Barcelona Spain</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Amsterdam Netherlands</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide  ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Montreal Cananda</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Phoenix Arizona</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="slide ">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>San Juan Puerto Rico</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button id="next">></button>
+    <button id="prev">
+      <</button>
+  </div>
+  <div class="location-temp-container">
+    <div class="location">
+      <h3 class="location-timezone">Timezone</h3>
+      <canvas class="icon" width="108" height="108"></canvas>
+    </div>
+    <div class="temperature">
+      <h5 id="getWeather">
+        Click allow on alert box
+      </h5>
+      <div class="degree-section">
+        <h4 class="temperature-degree">34</h4>
+        <span>F</span>
+      </div>
+      <div class="temperature-time"></div>
+      <div class="today-time"></div>
+      <div class="temperature-description"></div>
+    </div>
+  </div>
+  <script src="skycons.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
