@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>image slider</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="style9.css" />
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
@@ -25,10 +25,12 @@
     <h2 id="vergilKelley">Vergil Kelley</h2>
     <h3 id="webDev">Front End Developer</h3>
     <p>
-      <span class="bold">Technologies:</span> HTML, CSS, JavaScript, OOP, jQuery, API's WordPress, PHP, SQL, MySQL, phpMyAdmin, SASS, Git/GitHub,
-      MailChimp, JSON, Ajax. Based in Chicago Illinois, I am currently employed by a payments processing company making responsive
-      & dynamic websites for merchants along with maintaining my employer's website. In my free time I like to work on projects
-      for friends and family. I also enjoy traveling.
+      <span class="normalFontWeight bold">Technologies:</span> HTML, CSS, JavaScript, OOP, jQuery, APIs, WordPress, PHP, SQL, MySQL, phpMyAdmin, SASS, Git/GitHub,
+      JSON, Ajax, MailChimp, CSS Grid, Flexbox.
+      <span class="normalFontWeight" style="color: #00bfff">Based in Chicago Illinois, I am currently employed by a payments processing company, creating responsive & dynamic
+        websites for merchants and maintaining my employer's website. In my free time I enjoy working on projects for friends
+        and family. I also like to travel.
+      </span>
     </p>
   </div>
   <div class="slider">
@@ -84,7 +86,7 @@
     <div class="slide  ">
       <div class="overlay"></div>
       <div class="content">
-        <h1>Montreal Cananda</h1>
+        <h1>Montreal Canada</h1>
         <p></p>
       </div>
     </div>
@@ -108,26 +110,27 @@
     <button id="prev">
       <</button>
   </div>
-  <div class="location-temp-container">
-    <div class="location">
-      <h3 class="location-timezone">Timezone</h3>
-      <canvas class="icon" width="108" height="108"></canvas>
-    </div>
-    <div class="temperature">
-      <h5 id="getWeather">
-        Click allow on alert box
-      </h5>
-      <div class="degree-section">
-        <h4 class="temperature-degree">34</h4>
-        <span>F</span>
-      </div>
-      <div class="temperature-time"></div>
-      <div class="today-time"></div>
-      <div class="temperature-description"></div>
-    </div>
+  <div id="weatherContainer">
+    <p>
+      Get current weather conditions in cities around the world.
+    </p>
+    <!---input city name-->
+    <input type="text" name="city" id="city" placeholder="Enter City Name" />
+    <div id="error"></div>
+    <!-- get current weather-->
+    <button id="submitWeather">Get Weather</button>
+    <button id="hideWeatherBtn">x</button>
+    <button id="closeErrorBtn">x</button>
+    <div class="hideWeather" id="show"></div>
+    <div class="tempCity hideWeather"></div>
   </div>
-  <script src="skycons.js"></script>
-  <script src="js/main.js"></script>
+
+  <hr />
+  <!--<div id="windSpeed" class="bottomDetails"></div>
+        <div id="humanity" class="bottomDetails"></div>-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="main9.js"></script>
 </body>
 
 </html>
