@@ -1,64 +1,116 @@
-// get weather for current location
-getWeather.addEventListener("click", () => {
-  let long;
-  let lat;
-  let temperatureDescription = document.querySelector(
-    ".temperature-description"
-  );
-  let temperatureDegree = document.querySelector(".temperature-degree");
-  let locationTimeZone = document.querySelector(".location-timezone");
-  let temperatureSection = document.querySelector(".temperature");
-  const temperatureSpan = document.querySelector(".temperature span");
+// *************display weather app info*****************
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(Position => {
-      long = Position.coords.longitude;
-      lat = Position.coords.latitude;
+$(document).ready(function () {
+  $("#submitWeather").click(function () {
+    var city = $("#city").val();
 
-      const proxy = "https://cors-anywhere.herokuapp.com/";
-      const api = `${proxy}https://api.darksky.net/forecast/f096a2ce913f2b10a500d5564399fcb7/${lat},${long}`;
-
-      fetch(api)
-        .then(Response => {
-          return Response.json();
-        })
-        .then(data => {
+    if (city != "") {
+      $.ajax({
+        url:
+          "http://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&units=imperial" +
+          "&APPID=d2032e58f9c4ad9419826cd0fe298077",
+        type: "GET",
+        dataType: "jsonp",
+        success: function (data) {
           console.log(data);
-          const { temperature, summary, icon } = data.currently;
-          // set DOM elements from the api
-          temperatureDegree.textContent = Math.floor(temperature);
-          temperatureDescription.textContent = summary;
-          locationTimeZone.textContent = data.timezone;
-          // celsius formula
-          let celsius = (temperature - 32) * (5 / 9);
-          // set icon
-          setIcons(icon, document.querySelector(".icon"));
 
-          // change temperature to celcius/farenheit
-          temperatureSection.addEventListener("click", () => {
-            if (temperatureSpan.textContent === "F") {
-              temperatureSpan.textContent = "C";
-              temperatureDegree.textContent = Math.floor(celsius);
-            } else {
-              temperatureSpan.textContent = "F";
-              temperatureDegree.textContent = Math.floor(temperature);
-            }
-          });
-        });
-    });
-  } else {
-    h1.textContent = "Reload page and click allow to see local weather";
-  }
-  // get weather icons
-  function setIcons(icon, iconID) {
-    const skycons = new Skycons({ color: "white" });
-    const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-    skycons.play();
-    return skycons.set(iconID, Skycons[currentIcon]);
-  }
+          var widget = show(data);
+
+          $("#show").html(widget);
+
+          $("#city").val("");
+        }
+      });
+    } else {
+      $("#error").show();
+      $("#submitWeather").hide();
+      $("#show").html("");
+      $("#error").html("Please Enter A City Name");
+      $("#closeErrorBtn").show();
+      $("#hideWeatherBtn").hide("");
+    }
+  });
+});
+/***********display weather data from api*********/
+
+function show(data) {
+  return (
+    "<div class='tempCity'><span class='bold'> Current Weather for: </span> " +
+    data.name +
+    ", " +
+    data.sys.country +
+    "		</div>" +
+    /* "<h4><strong>Weather</strong>: " +
+    data.weather[0].main +
+    "</h4>" + */ "<h4>Description: " +
+    "<span class='normalFontWeight'>" +
+    data.weather[0].description +
+    "</span>" +
+    /*"<img src='http://openweathermap.org/img/w/" +
+    data.weather[0].icon +
+    ".png'>"*/ "</h4>" +
+    "<h4>Temperature: " +
+    " " +
+    "<span class='normalFontWeight'>" +
+    Math.floor(data.main.temp) +
+    "&#8457</span>" +
+    "  " +
+    /*"<h3><strong>Pressure</strong>: "+data.main.pressure+"</h3>"+*/
+    "High: " +
+    "  " +
+    "<span class='normalFontWeight'>" +
+    Math.floor(data.main.temp_max) +
+    "&#8457</span>" +
+    "  " +
+    "Low: " +
+    "<span class='normalFontWeight'>" +
+    Math.floor(data.main.temp_min) +
+    "&#8457</h4></span>" +
+    "<h4><strong>Wind Speed</strong>: " +
+    "<span class='normalFontWeight'>" +
+    Math.floor(data.wind.speed) +
+    " MPH</h4></span>" +
+    "<h4><strong>Humidity</strong>: " +
+    "<span class='normalFontWeight'>" +
+    data.main.humidity +
+    "% </span>" +
+    "</h4>"
+  );
+  /*"<h3><strong>Wind Direction</strong>: "+data.wind.deg+"&deg</h3>"*/
+}
+
+// add or remove class hideWeather
+
+$(document).ready(function () {
+  $("#hideWeatherBtn").click(function () {
+    $(".hideWeather").fadeOut();
+    $("#submitWeather").show();
+    /*$("#city").value("");*/
+    $("#city").show();
+    $("#submitWeather").show();
+  });
 });
 
-// slider function
+$(document).ready(function () {
+  $("#submitWeather").click(function () {
+    $(".hideWeather").fadeIn();
+    $("#city").hide();
+    $("#submitWeather").hide();
+  });
+});
+
+$(document).ready(function () {
+  $("#closeErrorBtn").click(function () {
+    $("#error").hide();
+    $(".hideWeather").hide();
+    $("input").show();
+    $("#submitWeather").show();
+  });
+});
+
+////////////////////////////////////////////////////////////// slider function
 const slides = document.querySelectorAll(".slide");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
